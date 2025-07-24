@@ -6,19 +6,25 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>Licenciatura en Nutrición - Primer Año</h1>
-  <div id="malla">
-    <button onclick="mostrarInfo('ANATOMÍA DESCRIPTIVA Y TOPOGRÁFICA I')">ANATOMÍA DESCRIPTIVA Y TOPOGRÁFICA I</button>
-    <button onclick="mostrarInfo('BIOQUÍMICA')">BIOQUÍMICA</button>
-    <button onclick="mostrarInfo('NUTRICIÓN NORMAL')">NUTRICIÓN NORMAL</button>
-    <button onclick="mostrarInfo('EDUCACIÓN PARA LA SALUD')">EDUCACIÓN PARA LA SALUD</button>
-    <button onclick="mostrarInfo('INTRODUCCIÓN AL PENSAMIENTO CIENTÍFICO I')">INTRODUCCIÓN AL PENSAMIENTO CIENTÍFICO I</button>
-    <button onclick="mostrarInfo('BIOFÍSICA')">BIOFÍSICA</button>
-    <button onclick="mostrarInfo('PSICOSOCIALES')">PSICOSOCIALES</button>
-    <button onclick="mostrarInfo('EMBRIOLOGÍA Y DESARROLLO')">EMBRIOLOGÍA Y DESARROLLO</button>
-    <button onclick="mostrarInfo('NUTRICIÓN DEL NIÑO Y ADOLESCENTE SANO')">NUTRICIÓN DEL NIÑO Y ADOLESCENTE SANO</button>
-    <div id="info"></div>
+  <h1>Licenciatura en Nutrición - Malla Interactiva</h1>
+
+  <div class="anio">
+    <h2>Primer Año</h2>
+    <div class="materias">
+      <div class="materia" onclick="mostrarInfo(this, 'ANATOMÍA DESCRIPTIVA Y TOPOGRÁFICA I')">Anatomía Descriptiva y Topográfica I</div>
+      <div class="materia" onclick="mostrarInfo(this, 'BIOQUÍMICA')">Bioquímica</div>
+      <div class="materia" onclick="mostrarInfo(this, 'NUTRICIÓN NORMAL')">Nutrición Normal</div>
+      <div class="materia" onclick="mostrarInfo(this, 'EDUCACIÓN PARA LA SALUD')">Educación para la Salud</div>
+      <div class="materia" onclick="mostrarInfo(this, 'INTRODUCCIÓN AL PENSAMIENTO CIENTÍFICO I')">Introducción al Pensamiento Científico I</div>
+      <div class="materia" onclick="mostrarInfo(this, 'BIOFÍSICA')">Biofísica</div>
+      <div class="materia" onclick="mostrarInfo(this, 'PSICOSOCIALES')">Psicosociales</div>
+      <div class="materia" onclick="mostrarInfo(this, 'EMBRIOLOGÍA Y DESARROLLO')">Embriología y Desarrollo</div>
+      <div class="materia" onclick="mostrarInfo(this, 'NUTRICIÓN DEL NIÑO Y ADOLESCENTE SANO')">Nutrición del Niño y Adolescente Sano</div>
+    </div>
   </div>
+
+  <div id="info"></div>
+
   <script src="script.js"></script>
 </body>
 </html>
