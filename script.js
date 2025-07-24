@@ -12,4 +12,12 @@ function mostrarInfo(materia) {
   };
 
   document.getElementById('info').innerText = info[materia] || "Materia sin descripción aún.";
+
+  // 🪄 Tachar el botón que fue tocado
+  let botones = document.querySelectorAll("button");
+  botones.forEach(boton => {
+    if (boton.innerText === materia) {
+      boton.classList.toggle("tachado");
+    }
+  });
 }
