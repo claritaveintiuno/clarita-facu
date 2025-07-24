@@ -13,6 +13,6 @@ function mostrarInfo(elemento, materia) {
 
   document.getElementById('info').innerText = info[materia] || "Materia sin descripción aún.";
 
-  // Tachar o destachar
+  // 🔁 Agrega o quita la clase 'tachado'
   elemento.classList.toggle("tachado");
 }
