@@ -1,4 +1,4 @@
-function mostrarInfo(materia) {
+function mostrarInfo(elemento, materia) {
   let info = {
     "ANATOMÍA DESCRIPTIVA Y TOPOGRÁFICA I": "Estudia la estructura del cuerpo humano.",
     "BIOQUÍMICA": "Analiza procesos químicos en seres vivos.",
@@ -13,11 +13,6 @@ function mostrarInfo(materia) {
 
   document.getElementById('info').innerText = info[materia] || "Materia sin descripción aún.";
 
-  // 🪄 Tachar el botón que fue tocado
-  let botones = document.querySelectorAll("button");
-  botones.forEach(boton => {
-    if (boton.innerText === materia) {
-      boton.classList.toggle("tachado");
-    }
-  });
+  // Tachar o destachar
+  elemento.classList.toggle("tachado");
 }
