@@ -1,33 +1,15 @@
-body {
-  font-family: Arial, sans-serif;
-  background-color: #f9f9f9;
-  padding: 20px;
-  text-align: center;
-}
+function mostrarInfo(materia) {
+  let info = {
+    "ANATOMÍA DESCRIPTIVA Y TOPOGRÁFICA I": "Estudia la estructura del cuerpo humano.",
+    "BIOQUÍMICA": "Analiza procesos químicos en seres vivos.",
+    "NUTRICIÓN NORMAL": "Conceptos básicos sobre alimentación saludable.",
+    "EDUCACIÓN PARA LA SALUD": "Promueve hábitos saludables en la población.",
+    "INTRODUCCIÓN AL PENSAMIENTO CIENTÍFICO I": "Primeros pasos en el método científico.",
+    "BIOFÍSICA": "Aplica física a los sistemas biológicos.",
+    "PSICOSOCIALES": "Estudia factores psicológicos y sociales en la salud.",
+    "EMBRIOLOGÍA Y DESARROLLO": "Estudia el desarrollo del ser humano desde la concepción.",
+    "NUTRICIÓN DEL NIÑO Y ADOLESCENTE SANO": "Necesidades nutricionales durante el crecimiento."
+  };
 
-h1 {
-  color: #2c3e50;
-}
-
-button {
-  margin: 10px;
-  padding: 12px 20px;
-  background-color: #2ecc71;
-  color: white;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  font-size: 16px;
-}
-
-button:hover {
-  background-color: #27ae60;
-}
-
-#info {
-  margin-top: 30px;
-  padding: 15px;
-  background-color: #ecf0f1;
-  border-radius: 8px;
-  font-size: 18px;
+  document.getElementById('info').innerText = info[materia] || "Materia sin descripción aún.";
 }
