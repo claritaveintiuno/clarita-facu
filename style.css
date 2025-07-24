@@ -31,3 +31,8 @@ button:hover {
   border-radius: 8px;
   font-size: 18px;
 }
+.tachado {
+  text-decoration: line-through;
+  background-color: #bdc3c7;
+  color: #7f8c8d;
+}
