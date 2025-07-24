@@ -11,8 +11,9 @@ function mostrarInfo(elemento, materia) {
     "NUTRICIÓN DEL NIÑO Y ADOLESCENTE SANO": "Necesidades nutricionales durante el crecimiento."
   };
 
+  // Mostrar la descripción
   document.getElementById('info').innerText = info[materia] || "Materia sin descripción aún.";
 
-  // 🔁 Agrega o quita la clase 'tachado'
+  // Tachar o destachar
   elemento.classList.toggle("tachado");
 }
