@@ -1,4 +1,5 @@
 function mostrarInfo(elemento, materia) {
+  console.log("Click detectado en: " + materia);
   let info = {
     "ANATOMÍA DESCRIPTIVA Y TOPOGRÁFICA I": "Estudia la estructura del cuerpo humano.",
     "BIOQUÍMICA": "Analiza procesos químicos en seres vivos.",
