@@ -1,86 +1,87 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
   <meta charset="UTF-8">
   <title>Licenciatura en Nutrición</title>
   <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
 </head>
 <body>
   <h1>Licenciatura en Nutrición - Malla Interactiva</h1>
 
+  <!-- PRIMER AÑO -->
   <div class="anio">
     <h2>Primer Año</h2>
     <div class="materias">
-      <div class="materia" onclick="mostrarInfo(this, 'ANATOMÍA DESCRIPTIVA Y TOPOGRÁFICA I')">Anatomía Descriptiva y Topográfica I</div>
-      <div class="materia" onclick="mostrarInfo(this, 'BIOQUÍMICA')">Bioquímica</div>
-      <div class="materia" onclick="mostrarInfo(this, 'NUTRICIÓN NORMAL')">Nutrición Normal</div>
-      <div class="materia" onclick="mostrarInfo(this, 'EDUCACIÓN PARA LA SALUD')">Educación para la Salud</div>
-      <div class="materia" onclick="mostrarInfo(this, 'INTRODUCCIÓN AL PENSAMIENTO CIENTÍFICO I')">Introducción al Pensamiento Científico I</div>
-      <div class="materia" onclick="mostrarInfo(this, 'BIOFÍSICA')">Biofísica</div>
-      <div class="materia" onclick="mostrarInfo(this, 'PSICOSOCIALES')">Psicosociales</div>
-      <div class="materia" onclick="mostrarInfo(this, 'EMBRIOLOGÍA Y DESARROLLO')">Embriología y Desarrollo</div>
-      <div class="materia" onclick="mostrarInfo(this, 'NUTRICIÓN DEL NIÑO Y ADOLESCENTE SANO')">Nutrición del Niño y Adolescente Sano</div>
+      <div class="materia" onclick="mostrarInfo(this)">Anatomía Descriptiva y Topográfica I</div>
+      <div class="materia" onclick="mostrarInfo(this)">Bioquímica</div>
+      <div class="materia" onclick="mostrarInfo(this)">Nutrición Normal</div>
+      <div class="materia" onclick="mostrarInfo(this)">Educación para la Salud</div>
+      <div class="materia" onclick="mostrarInfo(this)">Introducción al Pensamiento Científico I</div>
+      <div class="materia" onclick="mostrarInfo(this)">Biofísica</div>
+      <div class="materia" onclick="mostrarInfo(this)">Psicosociales</div>
+      <div class="materia" onclick="mostrarInfo(this)">Embriología y Desarrollo</div>
+      <div class="materia" onclick="mostrarInfo(this)">Nutrición del Niño y Adolescente Sano</div>
     </div>
   </div>
 
-  <div id="info"></div>
+  <!-- SEGUNDO AÑO -->
+  <div class="anio">
+    <h2>Segundo Año</h2>
+    <div class="materias">
+      <div class="materia" onclick="mostrarInfo(this)">Fisiología</div>
+      <div class="materia" onclick="mostrarInfo(this)">Técnicas y Manejo de Alimentos</div>
+      <div class="materia" onclick="mostrarInfo(this)">Psicología Social e Institucional</div>
+      <div class="materia" onclick="mostrarInfo(this)">Epidemiología</div>
+      <div class="materia" onclick="mostrarInfo(this)">Bromatología y Tecnología de los Alimentos</div>
+      <div class="materia" onclick="mostrarInfo(this)">Atención Primaria de la Salud</div>
+      <div class="materia" onclick="mostrarInfo(this)">Administración, Organización y Gestión de Servicios</div>
+    </div>
+  </div>
+
+  <!-- TERCER AÑO -->
+  <div class="anio">
+    <h2>Tercer Año</h2>
+    <div class="materias">
+      <div class="materia" onclick="mostrarInfo(this)">Técnica Dietoterápica</div>
+      <div class="materia" onclick="mostrarInfo(this)">Fisiopatología y Dietoterapia del Adulto</div>
+      <div class="materia" onclick="mostrarInfo(this)">Atención Comunitaria I</div>
+      <div class="materia" onclick="mostrarInfo(this)">Microbiología</div>
+      <div class="materia" onclick="mostrarInfo(this)">Farmacología General</div>
+      <div class="materia" onclick="mostrarInfo(this)">Fisiopatología y Dietoterapia del Niño y del Adolescente</div>
+      <div class="materia" onclick="mostrarInfo(this)">Antropología, Cultura y Nutrición</div>
+      <div class="materia" onclick="mostrarInfo(this)">Toxicología de los Alimentos</div>
+    </div>
+  </div>
+
+  <!-- CUARTO AÑO -->
+  <div class="anio">
+    <h2>Cuarto Año</h2>
+    <div class="materias">
+      <div class="materia" onclick="mostrarInfo(this)">Administración en Servicios de Alimentación</div>
+      <div class="materia" onclick="mostrarInfo(this)">Atención Comunitaria II</div>
+      <div class="materia" onclick="mostrarInfo(this)">Metodología de la Investigación I</div>
+      <div class="materia" onclick="mostrarInfo(this)">Soporte Nutricional</div>
+      <div class="materia" onclick="mostrarInfo(this)">Historia Argentina y Latinoamericana de las Ciencias de la Salud</div>
+      <div class="materia" onclick="mostrarInfo(this)">Deontología</div>
+      <div class="materia" onclick="mostrarInfo(this)">Política y Evaluación en Nutrición</div>
+      <div class="materia" onclick="mostrarInfo(this)">Economía, Comercialización y Distribución de Alimentos</div>
+      <div class="materia" onclick="mostrarInfo(this)">Técnicas Pedagógicas en Nutrición</div>
+      <div class="materia" onclick="mostrarInfo(this)">Nutrición y Deporte</div>
+      <div class="materia" onclick="mostrarInfo(this)">Marketing, Investigación y Desarrollo de Alimentos</div>
+      <div class="materia" onclick="mostrarInfo(this)">Bioética y Ética Profesional</div>
+    </div>
+  </div>
+
+  <!-- QUINTO AÑO -->
+  <div class="anio">
+    <h2>Quinto Año</h2>
+    <div class="materias">
+      <div class="materia" onclick="mostrarInfo(this)">Práctica Profesional en Servicios de Alimentación</div>
+      <div class="materia" onclick="mostrarInfo(this)">Práctica Profesional en Nutrición Clínica</div>
+    </div>
+  </div>
 
   <script src="script.js"></script>
 </body>
 </html>
-<!-- Segundo Año -->
-<div class="anio">
-  <h2>Segundo Año</h2>
-  <div class="materias">
-    <div class="materia" onclick="mostrarInfo(this, 'FISIOLOGÍA')">Fisiología</div>
-    <div class="materia" onclick="mostrarInfo(this, 'TÉCNICAS Y MANEJO DE ALIMENTOS')">Técnicas y Manejo de Alimentos</div>
-    <div class="materia" onclick="mostrarInfo(this, 'PSICOLOGÍA SOCIAL E INSTITUCIONAL')">Psicología Social e Institucional</div>
-    <div class="materia" onclick="mostrarInfo(this, 'EPIDEMIOLOGÍA')">Epidemiología</div>
-    <div class="materia" onclick="mostrarInfo(this, 'BROMATOLOGÍA Y TECNOLOGÍA DE LOS ALIMENTOS')">Bromatología y Tecnología de los Alimentos</div>
-    <div class="materia" onclick="mostrarInfo(this, 'ATENCIÓN PRIMARIA DE LA SALUD')">Atención Primaria de la Salud</div>
-    <div class="materia" onclick="mostrarInfo(this, 'ADMINISTRACIÓN, ORGANIZACIÓN Y GESTIÓN DE SERVICIOS')">Administración, Organización y Gestión de Servicios</div>
-  </div>
-</div>
-
-<!-- Tercer Año -->
-<div class="anio">
-  <h2>Tercer Año</h2>
-  <div class="materias">
-    <div class="materia" onclick="mostrarInfo(this, 'TÉCNICA DIETOTERÁPICA')">Técnica Dietoterápica</div>
-    <div class="materia" onclick="mostrarInfo(this, 'FISIOPATOLOGÍA Y DIETOTERAPIA DEL ADULTO')">Fisiopatología y Dietoterapia del Adulto</div>
-    <div class="materia" onclick="mostrarInfo(this, 'ATENCIÓN COMUNITARIA I')">Atención Comunitaria I</div>
-    <div class="materia" onclick="mostrarInfo(this, 'MICROBIOLOGÍA')">Microbiología</div>
-    <div class="materia" onclick="mostrarInfo(this, 'FARMACOLOGÍA GENERAL')">Farmacología General</div>
-    <div class="materia" onclick="mostrarInfo(this, 'FISIOPATOLOGÍA Y DIETOTERAPIA DEL NIÑO Y DEL ADOLESCENTE')">Fisiopatología y Dietoterapia del Niño y del Adolescente</div>
-    <div class="materia" onclick="mostrarInfo(this, 'ANTROPOLOGÍA, CULTURA Y NUTRICIÓN')">Antropología, Cultura y Nutrición</div>
-    <div class="materia" onclick="mostrarInfo(this, 'TOXICOLOGÍA DE LOS ALIMENTOS')">Toxicología de los Alimentos</div>
-  </div>
-</div>
-
-<!-- Cuarto Año -->
-<div class="anio">
-  <h2>Cuarto Año</h2>
-  <div class="materias">
-    <div class="materia" onclick="mostrarInfo(this, 'ADMINISTRACIÓN EN SERVICIOS DE ALIMENTACIÓN')">Administración en Servicios de Alimentación</div>
-    <div class="materia" onclick="mostrarInfo(this, 'ATENCIÓN COMUNITARIA II')">Atención Comunitaria II</div>
-    <div class="materia" onclick="mostrarInfo(this, 'METODOLOGÍA DE LA INVESTIGACIÓN I')">Metodología de la Investigación I</div>
-    <div class="materia" onclick="mostrarInfo(this, 'SOPORTE NUTRICIONAL')">Soporte Nutricional</div>
-    <div class="materia" onclick="mostrarInfo(this, 'HISTORIA ARGENTINA Y LATINOAMERICANA DE LAS CIENCIAS DE LA SALUD')">Historia Argentina y Latinoamericana de las Ciencias de la Salud</div>
-    <div class="materia" onclick="mostrarInfo(this, 'DEONTOLOGÍA')">Deontología</div>
-    <div class="materia" onclick="mostrarInfo(this, 'POLÍTICA Y EVALUACIÓN EN NUTRICIÓN')">Política y Evaluación en Nutrición</div>
-    <div class="materia" onclick="mostrarInfo(this, 'ECONOMÍA, COMERCIALIZACIÓN Y DISTRIBUCIÓN DE ALIMENTOS')">Economía, Comercialización y Distribución de Alimentos</div>
-    <div class="materia" onclick="mostrarInfo(this, 'TÉCNICAS PEDAGÓGICAS EN NUTRICIÓN')">Técnicas Pedagógicas en Nutrición</div>
-    <div class="materia" onclick="mostrarInfo(this, 'NUTRICIÓN Y DEPORTE')">Nutrición y Deporte</div>
-    <div class="materia" onclick="mostrarInfo(this, 'MARKETING, INVESTIGACIÓN Y DESARROLLO DE ALIMENTOS')">Marketing, Investigación y Desarrollo de Alimentos</div>
-    <div class="materia" onclick="mostrarInfo(this, 'BIOÉTICA Y ÉTICA PROFESIONAL')">Bioética y Ética Profesional</div>
-  </div>
-</div>
-
-<!-- Quinto Año -->
-<div class="anio">
-  <h2>Quinto Año</h2>
-  <div class="materias">
-    <div class="materia" onclick="mostrarInfo(this, 'PRÁCTICA PROFESIONAL EN SERVICIOS DE ALIMENTACIÓN')">Práctica Profesional en Servicios de Alimentación</div>
-    <div class="materia" onclick="mostrarInfo(this, 'PRÁCTICA PROFESIONAL EN NUTRICIÓN CLÍNICA')">Práctica Profesional en Nutrición Clínica</div>
-  </div>
-</div>
