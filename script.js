@@ -57,16 +57,17 @@ function mostrarInfo(elemento) {
 window.onload = function () {
   const materias = document.querySelectorAll(".materia");
 
-  // Primero actualizamos qué materias deben estar habilitadas o deshabilitadas
-  actualizarHabilitadas();
-
-  // Luego restauramos las tachadas
+  // 🔄 Primero restauramos materias tachadas
   materias.forEach(materia => {
     const nombre = materia.innerText;
     if (localStorage.getItem(nombre) === "tachado") {
       materia.classList.add("tachado");
     }
   });
+
+  // 🔄 Luego evaluamos las correlatividades con la info restaurada
+  actualizarHabilitadas();
+};
 
   actualizarHabilitadas(); // Se vuelve a correr por si al restaurar se liberan nuevas materias
 };
