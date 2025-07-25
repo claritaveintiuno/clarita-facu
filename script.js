@@ -1,8 +1,45 @@
+// Guardar o quitar tachado en localStorage
 function mostrarInfo(elemento) {
-  // Alterna la clase "tachado" al hacer clic
+  const nombre = elemento.innerText;
+  elemento.classList.toggle("tachado");
+
   if (elemento.classList.contains("tachado")) {
-    elemento.classList.remove("tachado");
+    localStorage.setItem(nombre, "tachado");
   } else {
-    elemento.classList.add("tachado");
+    localStorage.removeItem(nombre);
   }
+
+  actualizarHabilitadas();
+}
+
+// Al cargar la página, aplicar el estado guardado
+window.onload = function () {
+  const materias = document.querySelectorAll(".materia");
+  materias.forEach(materia => {
+    const nombre = materia.innerText;
+    if (localStorage.getItem(nombre) === "tachado") {
+      materia.classList.add("tachado");
+    }
+  });
+
+  actualizarHabilitadas();
+};
+
+// Habilitar solo materias después de una tachada
+function actualizarHabilitadas() {
+  const bloques = document.querySelectorAll(".materias");
+  
+  bloques.forEach(bloque => {
+    const materias = bloque.querySelectorAll(".materia");
+    let habilitar = true;
+
+    materias.forEach(materia => {
+      if (!materia.classList.contains("tachado") && habilitar) {
+        materia.classList.remove("deshabilitada");
+        habilitar = false;
+      } else if (!materia.classList.contains("tachado")) {
+        materia.classList.add("deshabilitada");
+      }
+    });
+  });
 }
