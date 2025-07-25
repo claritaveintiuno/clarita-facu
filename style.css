@@ -1,5 +1,5 @@
 body {
-  font-family: Arial, sans-serif;
+  font-family: 'Poppins', sans-serif;
   background-color: #f9f9f9;
   padding: 20px;
   text-align: center;
@@ -21,8 +21,8 @@ h1 {
 }
 
 .materia {
-  background-color: #3498db;
-  color: white;
+  background-color: #FFC5D3;
+  color: #2c3e50;
   padding: 15px 20px;
   border-radius: 50px;
   cursor: pointer;
@@ -31,22 +31,11 @@ h1 {
 }
 
 .materia:hover {
-  background-color: #2980b9;
+  background-color: #fcaec3;
 }
 
 .materia.tachado {
-  background-color: #bdc3c7;
-  color: #7f8c8d;
+  background-color: #e1e1e1;
+  color: #888;
   text-decoration: line-through;
-}
-
-#info {
-  margin-top: 30px;
-  padding: 15px;
-  background-color: #ecf0f1;
-  border-radius: 10px;
-  font-size: 18px;
-  max-width: 600px;
-  margin-left: auto;
-  margin-right: auto;
 }
