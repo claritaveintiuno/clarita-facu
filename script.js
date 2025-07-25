@@ -1,4 +1,3 @@
-// 🔗 Mapa de correlatividades
 const correlatividades = {
   "FISIOLOGÍA": [
     "ANATOMÍA DESCRIPTIVA Y TOPOGRÁFICA I",
@@ -36,7 +35,7 @@ const correlatividades = {
   ]
 };
 
-// ✅ Función principal para marcar o desmarcar una materia
+// ✅ Al hacer clic en una materia
 function mostrarInfo(elemento) {
   if (elemento.classList.contains("deshabilitada")) return;
 
@@ -52,11 +51,11 @@ function mostrarInfo(elemento) {
   actualizarHabilitadas();
 }
 
-// ✅ Al cargar la página, restaurar progreso y aplicar bloqueos
+// ✅ Al cargar la página
 window.onload = function () {
   const materias = document.querySelectorAll(".materia");
 
-  // Restaurar tachados
+  // Primero restauramos las tachadas
   materias.forEach(materia => {
     const nombre = materia.innerText;
     if (localStorage.getItem(nombre) === "tachado") {
@@ -64,15 +63,15 @@ window.onload = function () {
     }
   });
 
-  // Evaluar desbloqueos
+  // Luego actualizamos las materias habilitadas
   actualizarHabilitadas();
 };
 
-// ✅ Revisa requisitos y bloquea/habilita materias según el progreso
+// ✅ Actualiza la habilitación según correlatividades
 function actualizarHabilitadas() {
-  const todas = document.querySelectorAll(".materia");
+  const materias = document.querySelectorAll(".materia");
 
-  todas.forEach(materia => {
+  materias.forEach(materia => {
     const nombre = materia.innerText;
     const requisitos = correlatividades[nombre];
 
