@@ -1,6 +1,5 @@
-// 🔗 Mapa de correlatividades: materia => lista de materias que deben estar tachadas antes
+// 🔗 Mapa de correlatividades
 const correlatividades = {
-  // ⬇ Segundo año
   "FISIOLOGÍA": [
     "ANATOMÍA DESCRIPTIVA Y TOPOGRÁFICA I",
     "BIOQUÍMICA",
@@ -37,9 +36,9 @@ const correlatividades = {
   ]
 };
 
-// ✅ Esta función se llama cuando tocás una materia
+// ✅ Función principal para marcar o desmarcar una materia
 function mostrarInfo(elemento) {
-  if (elemento.classList.contains("deshabilitada")) return; // 🔒 No hacer nada si está bloqueada
+  if (elemento.classList.contains("deshabilitada")) return;
 
   const nombre = elemento.innerText;
   elemento.classList.toggle("tachado");
@@ -50,14 +49,14 @@ function mostrarInfo(elemento) {
     localStorage.removeItem(nombre);
   }
 
-  actualizarHabilitadas(); // 🔄 Verificamos si otras materias se desbloquean
+  actualizarHabilitadas();
 }
 
-// ✅ Esta función se ejecuta al cargar la página
+// ✅ Al cargar la página, restaurar progreso y aplicar bloqueos
 window.onload = function () {
   const materias = document.querySelectorAll(".materia");
 
-  // 🔄 Primero restauramos materias tachadas
+  // Restaurar tachados
   materias.forEach(materia => {
     const nombre = materia.innerText;
     if (localStorage.getItem(nombre) === "tachado") {
@@ -65,14 +64,11 @@ window.onload = function () {
     }
   });
 
-  // 🔄 Luego evaluamos las correlatividades con la info restaurada
+  // Evaluar desbloqueos
   actualizarHabilitadas();
 };
 
-  actualizarHabilitadas(); // Se vuelve a correr por si al restaurar se liberan nuevas materias
-};
-
-// ✅ Revisa correlatividades y aplica clases para deshabilitar las materias bloqueadas
+// ✅ Revisa requisitos y bloquea/habilita materias según el progreso
 function actualizarHabilitadas() {
   const todas = document.querySelectorAll(".materia");
 
