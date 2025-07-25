@@ -39,3 +39,7 @@ h1 {
   color: #888;
   text-decoration: line-through;
 }
+.materia.deshabilitada {
+  opacity: 0.4;
+  pointer-events: none;
+}
