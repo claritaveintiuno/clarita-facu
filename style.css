@@ -42,4 +42,5 @@ h1 {
 .materia.deshabilitada {
   opacity: 0.4;
   pointer-events: none;
+  cursor: not-allowed;
 }
