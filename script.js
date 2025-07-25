@@ -1,91 +1,96 @@
-// 🔗 Mapa de correlatividades
-const correlatividades = {
-  "FISIOLOGÍA": [
-    "Anatomía Descriptiva y Topográfica I",
-    "Bioquímica",
-    "Biofísica",
-    "Embriología y Desarrollo"
-  ],
-  "TÉCNICAS Y MANEJO DE ALIMENTOS": [
-    "Bioquímica",
-    "Nutrición Normal",
-    "Biofísica"
-  ],
-  "PSICOLOGÍA SOCIAL E INSTITUCIONAL": [
-    "Educación para la Salud",
-    "Psicosociales",
-    "Embriología y Desarrollo"
-  ],
-  "EPIDEMIOLOGÍA": [
-    "Introducción al Pensamiento Científico I"
-  ],
-  "BROMATOLOGÍA Y TECNOLOGÍA DE LOS ALIMENTOS": [
-    "Bioquímica",
-    "Nutrición Normal"
-  ],
-  "ATENCIÓN PRIMARIA DE LA SALUD": [
-    "Nutrición Normal",
-    "Educación para la Salud",
-    "Introducción al Pensamiento Científico I",
-    "Psicosociales",
-    "Embriología y Desarrollo",
-    "Nutrición del Niño y Adolescente Sano"
-  ],
-  "ADMINISTRACIÓN, ORGANIZACIÓN Y GESTIÓN DE SERVICIOS": [
-    "PSICOLOGÍA SOCIAL E INSTITUCIONAL"
-  ]
-};
+document.addEventListener("DOMContentLoaded", () => {
+  const materias = document.querySelectorAll(".materia");
+  const aprobadas = JSON.parse(localStorage.getItem("materiasAprobadas")) || [];
 
-// ✅ Al hacer clic en una materia
-function mostrarInfo(elemento, nombre = null) {
-  if (elemento.classList.contains("deshabilitada")) return;
+  // Correlatividades
+  const correlatividades = {
+    // SEGUNDO AÑO
+    "FISIOLOGÍA": ["ANATOMÍA DESCRIPTIVA Y TOPOGRÁFICA I", "BIOFÍSICA"],
+    "TÉCNICAS Y MANEJO DE ALIMENTOS": ["BIOQUÍMICA", "BROMATOLOGÍA Y TECNOLOGÍA DE LOS ALIMENTOS"],
+    "PSICOLOGÍA SOCIAL E INSTITUCIONAL": ["PSICOSOCIALES"],
+    "EPIDEMIOLOGÍA": ["EDUCACIÓN PARA LA SALUD"],
+    "BROMATOLOGÍA Y TECNOLOGÍA DE LOS ALIMENTOS": ["BIOQUÍMICA"],
+    "ATENCIÓN PRIMARIA DE LA SALUD": ["EDUCACIÓN PARA LA SALUD"],
+    "ADMINISTRACIÓN, ORGANIZACIÓN Y GESTIÓN DE SERVICIOS": ["EDUCACIÓN PARA LA SALUD"],
 
-  // Usa el nombre pasado o el texto del elemento
-  nombre = nombre || elemento.innerText;
-  elemento.classList.toggle("tachado");
+    // TERCER AÑO
+    "TÉCNICA DIETOTERÁPICA": [
+      "ANATOMÍA DESCRIPTIVA Y TOPOGRÁFICA I", "BIOQUÍMICA", "NUTRICIÓN NORMAL", "EDUCACIÓN PARA LA SALUD",
+      "INTRODUCCIÓN AL PENSAMIENTO CIENTÍFICO I", "BIOFÍSICA", "PSICOSOCIALES", "EMBRIOLOGÍA Y DESARROLLO",
+      "NUTRICIÓN DEL NIÑO Y ADOLESCENTE SANO", "FISIOLOGÍA", "TÉCNICAS Y MANEJO DE ALIMENTOS", "BROMATOLOGÍA Y TECNOLOGÍA DE LOS ALIMENTOS"
+    ],
+    "FISIOPATOLOGÍA Y DIETOTERAPIA DEL ADULTO": [
+      "ANATOMÍA DESCRIPTIVA Y TOPOGRÁFICA I", "BIOQUÍMICA", "NUTRICIÓN NORMAL", "EDUCACIÓN PARA LA SALUD",
+      "INTRODUCCIÓN AL PENSAMIENTO CIENTÍFICO I", "BIOFÍSICA", "PSICOSOCIALES", "EMBRIOLOGÍA Y DESARROLLO",
+      "NUTRICIÓN DEL NIÑO Y ADOLESCENTE SANO", "FISIOLOGÍA", "TÉCNICAS Y MANEJO DE ALIMENTOS", "BROMATOLOGÍA Y TECNOLOGÍA DE LOS ALIMENTOS"
+    ],
+    "ATENCIÓN COMUNITARIA I": [
+      "ANATOMÍA DESCRIPTIVA Y TOPOGRÁFICA I", "BIOQUÍMICA", "NUTRICIÓN NORMAL", "EDUCACIÓN PARA LA SALUD",
+      "INTRODUCCIÓN AL PENSAMIENTO CIENTÍFICO I", "BIOFÍSICA", "PSICOSOCIALES", "EMBRIOLOGÍA Y DESARROLLO",
+      "NUTRICIÓN DEL NIÑO Y ADOLESCENTE SANO", "FISIOLOGÍA", "TÉCNICAS Y MANEJO DE ALIMENTOS", "BROMATOLOGÍA Y TECNOLOGÍA DE LOS ALIMENTOS"
+    ],
+    "MICROBIOLOGÍA": [
+      "ANATOMÍA DESCRIPTIVA Y TOPOGRÁFICA I", "BIOQUÍMICA", "NUTRICIÓN NORMAL", "EDUCACIÓN PARA LA SALUD",
+      "INTRODUCCIÓN AL PENSAMIENTO CIENTÍFICO I", "BIOFÍSICA", "PSICOSOCIALES", "EMBRIOLOGÍA Y DESARROLLO",
+      "NUTRICIÓN DEL NIÑO Y ADOLESCENTE SANO", "FISIOLOGÍA", "TÉCNICAS Y MANEJO DE ALIMENTOS", "BROMATOLOGÍA Y TECNOLOGÍA DE LOS ALIMENTOS"
+    ],
+    "FARMACOLOGÍA GENERAL": [
+      "ANATOMÍA DESCRIPTIVA Y TOPOGRÁFICA I", "BIOQUÍMICA", "NUTRICIÓN NORMAL", "EDUCACIÓN PARA LA SALUD",
+      "INTRODUCCIÓN AL PENSAMIENTO CIENTÍFICO I", "BIOFÍSICA", "PSICOSOCIALES", "EMBRIOLOGÍA Y DESARROLLO",
+      "NUTRICIÓN DEL NIÑO Y ADOLESCENTE SANO", "FISIOLOGÍA"
+    ],
+    "FISIOPATOLOGÍA Y DIETOTERAPIA DEL NIÑO Y DEL ADOLESCENTE": [
+      "ANATOMÍA DESCRIPTIVA Y TOPOGRÁFICA I", "BIOQUÍMICA", "NUTRICIÓN NORMAL", "EDUCACIÓN PARA LA SALUD",
+      "INTRODUCCIÓN AL PENSAMIENTO CIENTÍFICO I", "BIOFÍSICA", "PSICOSOCIALES", "EMBRIOLOGÍA Y DESARROLLO",
+      "NUTRICIÓN DEL NIÑO Y ADOLESCENTE SANO", "FISIOLOGÍA", "TÉCNICAS Y MANEJO DE ALIMENTOS"
+    ],
+    "ANTROPOLOGÍA, CULTURA Y NUTRICIÓN": [
+      "ANATOMÍA DESCRIPTIVA Y TOPOGRÁFICA I", "BIOQUÍMICA", "NUTRICIÓN NORMAL", "EDUCACIÓN PARA LA SALUD",
+      "INTRODUCCIÓN AL PENSAMIENTO CIENTÍFICO I", "BIOFÍSICA", "PSICOSOCIALES", "EMBRIOLOGÍA Y DESARROLLO",
+      "NUTRICIÓN DEL NIÑO Y ADOLESCENTE SANO", "PSICOLOGÍA SOCIAL E INSTITUCIONAL", "ATENCIÓN PRIMARIA DE LA SALUD"
+    ],
+    "TOXICOLOGÍA DE LOS ALIMENTOS": [
+      "ANATOMÍA DESCRIPTIVA Y TOPOGRÁFICA I", "BIOQUÍMICA", "NUTRICIÓN NORMAL", "EDUCACIÓN PARA LA SALUD",
+      "INTRODUCCIÓN AL PENSAMIENTO CIENTÍFICO I", "BIOFÍSICA", "PSICOSOCIALES", "EMBRIOLOGÍA Y DESARROLLO",
+      "NUTRICIÓN DEL NIÑO Y ADOLESCENTE SANO", "TÉCNICAS Y MANEJO DE ALIMENTOS", "BROMATOLOGÍA Y TECNOLOGÍA DE LOS ALIMENTOS"
+    ]
+  };
 
-  if (elemento.classList.contains("tachado")) {
-    localStorage.setItem(nombre, "tachado");
-  } else {
-    localStorage.removeItem(nombre);
+  function actualizarEstadoMaterias() {
+    materias.forEach(materia => {
+      const nombre = materia.textContent.trim().toUpperCase();
+
+      if (aprobadas.includes(nombre)) {
+        materia.classList.add("tachado");
+        materia.classList.remove("deshabilitada");
+        return;
+      }
+
+      const requisitos = correlatividades[nombre];
+      if (requisitos) {
+        const habilitada = requisitos.every(req => aprobadas.includes(req));
+        materia.classList.toggle("deshabilitada", !habilitada);
+      }
+    });
   }
 
-  actualizarHabilitadas();
-}
-
-// ✅ Al cargar la página
-window.onload = function () {
-  const materias = document.querySelectorAll(".materia");
-
-  // Restaurar tachado desde localStorage
   materias.forEach(materia => {
-    const nombre = materia.innerText;
-    if (localStorage.getItem(nombre) === "tachado") {
-      materia.classList.add("tachado");
-    }
-  });
+    materia.addEventListener("click", () => {
+      const nombre = materia.textContent.trim().toUpperCase();
+      if (materia.classList.contains("deshabilitada")) return;
 
-  actualizarHabilitadas(); // Verifica habilitación después de restaurar
-};
-
-// ✅ Habilita o deshabilita materias según sus requisitos
-function actualizarHabilitadas() {
-  const materias = document.querySelectorAll(".materia");
-
-  materias.forEach(materia => {
-    const nombre = materia.innerText;
-    const requisitos = correlatividades[nombre.toUpperCase()] || correlatividades[nombre];
-
-    if (!requisitos || requisitos.length === 0) {
-      materia.classList.remove("deshabilitada");
-    } else {
-      const habilitada = requisitos.every(req => localStorage.getItem(req) === "tachado");
-
-      if (habilitada) {
-        materia.classList.remove("deshabilitada");
+      materia.classList.toggle("tachado");
+      if (materia.classList.contains("tachado")) {
+        if (!aprobadas.includes(nombre)) aprobadas.push(nombre);
       } else {
-        materia.classList.add("deshabilitada");
+        const index = aprobadas.indexOf(nombre);
+        if (index > -1) aprobadas.splice(index, 1);
       }
-    }
+
+      localStorage.setItem("materiasAprobadas", JSON.stringify(aprobadas));
+      actualizarEstadoMaterias();
+    });
   });
-}
+
+  actualizarEstadoMaterias();
+});
