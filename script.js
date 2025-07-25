@@ -1,34 +1,35 @@
+// 🔗 Mapa de correlatividades
 const correlatividades = {
   "FISIOLOGÍA": [
-    "ANATOMÍA DESCRIPTIVA Y TOPOGRÁFICA I",
-    "BIOQUÍMICA",
-    "BIOFÍSICA",
-    "EMBRIOLOGÍA Y DESARROLLO"
+    "Anatomía Descriptiva y Topográfica I",
+    "Bioquímica",
+    "Biofísica",
+    "Embriología y Desarrollo"
   ],
   "TÉCNICAS Y MANEJO DE ALIMENTOS": [
-    "BIOQUÍMICA",
-    "NUTRICIÓN NORMAL",
-    "BIOFÍSICA"
+    "Bioquímica",
+    "Nutrición Normal",
+    "Biofísica"
   ],
   "PSICOLOGÍA SOCIAL E INSTITUCIONAL": [
-    "EDUCACIÓN PARA LA SALUD",
-    "PSICOSOCIALES",
-    "EMBRIOLOGÍA Y DESARROLLO"
+    "Educación para la Salud",
+    "Psicosociales",
+    "Embriología y Desarrollo"
   ],
   "EPIDEMIOLOGÍA": [
-    "INTRODUCCIÓN AL PENSAMIENTO CIENTÍFICO I"
+    "Introducción al Pensamiento Científico I"
   ],
   "BROMATOLOGÍA Y TECNOLOGÍA DE LOS ALIMENTOS": [
-    "BIOQUÍMICA",
-    "NUTRICIÓN NORMAL"
+    "Bioquímica",
+    "Nutrición Normal"
   ],
   "ATENCIÓN PRIMARIA DE LA SALUD": [
-    "NUTRICIÓN NORMAL",
-    "EDUCACIÓN PARA LA SALUD",
-    "INTRODUCCIÓN AL PENSAMIENTO CIENTÍFICO I",
-    "PSICOSOCIALES",
-    "EMBRIOLOGÍA Y DESARROLLO",
-    "NUTRICIÓN DEL NIÑO Y ADOLESCENTE SANO"
+    "Nutrición Normal",
+    "Educación para la Salud",
+    "Introducción al Pensamiento Científico I",
+    "Psicosociales",
+    "Embriología y Desarrollo",
+    "Nutrición del Niño y Adolescente Sano"
   ],
   "ADMINISTRACIÓN, ORGANIZACIÓN Y GESTIÓN DE SERVICIOS": [
     "PSICOLOGÍA SOCIAL E INSTITUCIONAL"
@@ -36,10 +37,11 @@ const correlatividades = {
 };
 
 // ✅ Al hacer clic en una materia
-function mostrarInfo(elemento) {
+function mostrarInfo(elemento, nombre = null) {
   if (elemento.classList.contains("deshabilitada")) return;
 
-  const nombre = elemento.innerText;
+  // Usa el nombre pasado o el texto del elemento
+  nombre = nombre || elemento.innerText;
   elemento.classList.toggle("tachado");
 
   if (elemento.classList.contains("tachado")) {
@@ -55,7 +57,7 @@ function mostrarInfo(elemento) {
 window.onload = function () {
   const materias = document.querySelectorAll(".materia");
 
-  // Primero restauramos las tachadas
+  // Restaurar tachado desde localStorage
   materias.forEach(materia => {
     const nombre = materia.innerText;
     if (localStorage.getItem(nombre) === "tachado") {
@@ -63,24 +65,21 @@ window.onload = function () {
     }
   });
 
-  // Luego actualizamos las materias habilitadas
-  actualizarHabilitadas();
+  actualizarHabilitadas(); // Verifica habilitación después de restaurar
 };
 
-// ✅ Actualiza la habilitación según correlatividades
+// ✅ Habilita o deshabilita materias según sus requisitos
 function actualizarHabilitadas() {
   const materias = document.querySelectorAll(".materia");
 
   materias.forEach(materia => {
     const nombre = materia.innerText;
-    const requisitos = correlatividades[nombre];
+    const requisitos = correlatividades[nombre.toUpperCase()] || correlatividades[nombre];
 
     if (!requisitos || requisitos.length === 0) {
       materia.classList.remove("deshabilitada");
     } else {
-      const habilitada = requisitos.every(req => {
-        return localStorage.getItem(req) === "tachado";
-      });
+      const habilitada = requisitos.every(req => localStorage.getItem(req) === "tachado");
 
       if (habilitada) {
         materia.classList.remove("deshabilitada");
