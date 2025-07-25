@@ -38,25 +38,29 @@ const correlatividades = {
 };
 
 // ✅ Esta función se llama cuando tocás una materia
-// Alterna el tachado y guarda en localStorage
 function mostrarInfo(elemento) {
+  if (elemento.classList.contains("deshabilitada")) return; // 🔒 No hacer nada si está bloqueada
+
   const nombre = elemento.innerText;
   elemento.classList.toggle("tachado");
 
-  // Guardamos o quitamos en el almacenamiento local
   if (elemento.classList.contains("tachado")) {
     localStorage.setItem(nombre, "tachado");
   } else {
     localStorage.removeItem(nombre);
   }
 
-  actualizarHabilitadas(); // Actualizamos habilitación de materias correlativas
+  actualizarHabilitadas(); // 🔄 Verificamos si otras materias se desbloquean
 }
 
-// ✅ Esta función se ejecuta cuando se abre la página
-// Recupera el progreso guardado y actualiza la interfaz
+// ✅ Esta función se ejecuta al cargar la página
 window.onload = function () {
   const materias = document.querySelectorAll(".materia");
+
+  // Primero actualizamos qué materias deben estar habilitadas o deshabilitadas
+  actualizarHabilitadas();
+
+  // Luego restauramos las tachadas
   materias.forEach(materia => {
     const nombre = materia.innerText;
     if (localStorage.getItem(nombre) === "tachado") {
@@ -64,10 +68,10 @@ window.onload = function () {
     }
   });
 
-  actualizarHabilitadas(); // Habilita o deshabilita según progreso
+  actualizarHabilitadas(); // Se vuelve a correr por si al restaurar se liberan nuevas materias
 };
 
-// ✅ Esta función revisa correlatividades y deshabilita las materias que aún no pueden cursarse
+// ✅ Revisa correlatividades y aplica clases para deshabilitar las materias bloqueadas
 function actualizarHabilitadas() {
   const todas = document.querySelectorAll(".materia");
 
@@ -76,10 +80,8 @@ function actualizarHabilitadas() {
     const requisitos = correlatividades[nombre];
 
     if (!requisitos || requisitos.length === 0) {
-      // Sin requisitos, se habilita siempre
       materia.classList.remove("deshabilitada");
     } else {
-      // Revisión de requisitos: todos deben estar tachados
       const habilitada = requisitos.every(req => {
         return localStorage.getItem(req) === "tachado";
       });
